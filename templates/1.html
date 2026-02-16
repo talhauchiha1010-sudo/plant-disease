@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login & Signup</title>
+
+  <!-- ✅ FIXED CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='crop.css') }}">
+</head>
+
+<body>
+  <header class="logo-header">
+    <div class="logo"></div>
+    <h1 class="site-title">Crop Father</h1>
+  </header>
+
+  <div class="wrapper">
+
+    <!-- Login Form -->
+    <form id="loginForm">
+      <h2>Login</h2>
+
+      <div class="input-field">
+        <input type="text" id="loginEmail">
+        <label>Enter your email</label>
+      </div>
+
+      <div class="input-field">
+        <input type="password" id="loginPassword">
+        <label>Enter your password</label>
+      </div>
+
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#" id="showForgot">Forgot password?</a>
+      </div>
+
+      <button type="submit" id="loginSubmit">Log In</button>
+
+      <!-- Google Login -->
+      <button type="button" class="google-btn" id="googleLoginBtn">
+        <img src="/static/google.png" alt="Google Logo">
+        Login with Google
+      </button>
+
+      <div class="register">
+        <p>Don't have an account? <a href="#" id="showSignup">Signup</a></p>
+      </div>
+    </form>
+
+    <!-- Signup Form -->
+    <form id="signupForm" style="display: none;">
+      <h2>Signup</h2>
+
+      <div class="input-field">
+        <input type="text" id="signupEmail">
+        <label>Enter Email</label>
+      </div>
+
+      <div class="input-field">
+        <input type="password" id="signupPassword">
+        <label>Create Password</label>
+      </div>
+
+      <div class="input-field">
+        <input type="password" id="signupConfirmPassword">
+        <label>Confirm Password</label>
+      </div>
+
+      <button type="submit" id="signupSubmit">Signup</button>
+
+      <!-- Google Signup -->
+      <button type="button" class="google-btn" id="googleSignupBtn">
+        <img src="/static/google.png" alt="Google Logo">
+        Signup with Google
+      </button>
+
+      <div class="register">
+        <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+      </div>
+    </form>
+
+    <!-- Forgot Password -->
+    <form id="forgotForm" style="display: none;">
+      <h2>Reset Password</h2>
+
+      <div class="input-field">
+        <input type="email" id="forgotEmail">
+        <label>Enter Email</label>
+      </div>
+
+      <button type="submit" id="forgotSubmit">Send Reset Link</button>
+
+      <div class="register">
+        <p>Remembered? <a href="#" id="showLoginFromForgot">Back to Login</a></p>
+      </div>
+    </form>
+
+  </div>
+
+  <!-- ✅ FIXED JS -->
+  <script type="module" src="{{ url_for('static', filename='auth.js') }}"></script>
+
+</body>
+</html>
