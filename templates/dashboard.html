@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - Crop Father</title>
+
+  <!-- ✅ Corrected Flask Static CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='crop.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+
+  <!-- Hamburger -->
+  <button id="hamburger" class="hamburger" aria-label="Open navigation" type="button">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="logo logo-dashboard" aria-hidden="true"></div>
+    <h1 class="site-title" style="margin-left:12px; font-size:28px;">Crop Father</h1>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <div class="sidebar-top">
+      <div class="user-avatar" id="userAvatar">TQ</div>
+      <div class="user-name">Talha Qureshi</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li><button type="button" class="nav-item" id="nav-dashboard">Dashboard</button></li>
+        <li><button type="button" class="nav-item" id="nav-uploads">Uploads</button></li>
+        <li><button type="button" class="nav-item" id="nav-weather">Weather</button></li>
+        <li><button type="button" class="nav-item disabled" disabled>Reports (coming)</button></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button type="button" id="logoutBtn" class="google-btn">Log Out</button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="dashboard-main" id="mainContent" aria-live="polite">
+
+    <!-- Weather -->
+    <section class="top-row">
+      <div class="weather-card glass" id="weatherCard">
+        <div class="weather-header">
+          <h3>Current Weather</h3>
+          <small id="weatherLocation">—</small>
+        </div>
+        <div class="weather-body">
+          <div class="temp" id="weatherTemp">--°C</div>
+          <div class="desc" id="weatherDesc">Loading…</div>
+        </div>
+        <div class="weather-footer">
+          <small id="weatherNote">Waiting for location access...</small>
+          <button id="retryLocBtn"
+            type="button"
+            style="display:none; background:rgba(255,255,255,0.2); border:none; color:white; padding:4px 8px; border-radius:4px; font-size:0.75rem; cursor:pointer; margin-left:5px;">
+            📍 Retry Location
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-area glass">
+
+      <h2>Upload Plant Image</h2>
+      <p class="muted">Upload a clear photo of your plant to analyze for diseases.</p>
+
+      <div class="upload-controls">
+        <label class="file-label">
+          <input id="imageInput" type="file" accept="image/*" />
+          Choose image
+        </label>
+        <div class="upload-hint">
+          <big><b>Max 1 image · Drag & Drop supported</b></big>
+        </div>
+      </div>
+
+      <div id="previewGrid" class="preview-grid" aria-live="polite"></div>
+
+      <div class="actions">
+        <button type="button" id="detectBtn" class="primary-btn">Detect Disease</button>
+        <button type="button" id="clearBtn" class="secondary-btn">Clear</button>
+      </div>
+
+      <div id="resultBox" class="result-box">
+        <h3>Detection Result</h3>
+        <div id="resultContent" class="result-content">
+          No detection performed yet.
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ✅ Corrected Flask Static JS -->
+  <script type="module" src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>
