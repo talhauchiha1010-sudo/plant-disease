@@ -4,3 +4,4 @@ pillow
 tensorflow
 scikit-learn
 gunicorn
+firebase
